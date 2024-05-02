@@ -4,7 +4,6 @@ import matplotlib.pyplot as plt
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
-import tensorflow as tf
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Dense
 
@@ -58,11 +57,11 @@ plt.xlabel('Epochs')
 plt.ylabel('Loss')
 plt.legend()
 plt.show()
-print("Training complete.")
+
 
 # Predictions
 y_pred = model.predict(X_test_scaled)
-print("Prediction complete.")
+
 # Evaluate model
 rmse = np.sqrt(mean_squared_error(y_test, y_pred))
 mae = mean_absolute_error(y_test, y_pred)
@@ -80,7 +79,7 @@ print(f"Evaluation complete: RMSE: {rmse}, MAE: {mae}, R²: {r2}")
 # Plotting actual vs predicted
 plt.figure(figsize=(10, 5))
 plt.scatter(y_test, y_pred, alpha=0.5)
-plt.plot([y.min(), y.max()], [y.min(), y.max()], 'k--', lw=4)  # Diagonal line
+plt.plot([y.min(), y.max()], [y.min(), y.max()], 'k--', lw=4)
 plt.xlabel('Actual Temperatures')
 plt.ylabel('Predicted Temperatures')
 plt.title('Actual vs Predicted Temperatures')
